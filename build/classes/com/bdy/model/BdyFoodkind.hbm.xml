@@ -35,5 +35,9 @@
             </key>
             <one-to-many class="com.bdy.model.BdySetdetail" />
         </set>
+        
+        <property name="isMain" type="int">
+            <column name="IS_MAIN" />
+        </property>
     </class>
 </hibernate-mapping>

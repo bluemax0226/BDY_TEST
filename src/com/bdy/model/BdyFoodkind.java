@@ -17,6 +17,15 @@ public class BdyFoodkind implements java.io.Serializable {
 	private Set bdyOrderlists = new HashSet(0);
 	private Set bdyFoods = new HashSet(0);
 	private Set bdySetdetails = new HashSet(0);
+	private int isMain;
+
+	public int getIsMain() {
+		return isMain;
+	}
+
+	public void setIsMain(int isMain) {
+		this.isMain = isMain;
+	}
 
 	public BdyFoodkind() {
 	}

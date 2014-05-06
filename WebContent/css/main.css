@@ -31,7 +31,7 @@ body,html {
 	text-align: center;
 	width: 18%;
 	height: 83%;
-	min-height: 600px;
+	min-height: 610px;
 	border-radius:20px 0px 20px 20px;
 	border:1px solid gray;
 	margin:2px 2px 2px 2px;
@@ -48,6 +48,7 @@ body,html {
 	margin:2px 2px 2px 2px;
 	background-color:white;
 	min-width: 800px;
+	min-height: 600px;
 }
 
 #footer {
@@ -82,6 +83,26 @@ body,html {
 	width: 90%;
 	height: 40px;
 	text-align: center;
+	border:0px;
+	background: rgb(178,225,255);
+	background: -moz-radial-gradient(center, ellipse cover,  rgb(178,225,255) 0%, rgb(102,182,252) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgb(178,225,255)), color-stop(100%,rgb(102,182,252)));
+	background: -webkit-radial-gradient(center, ellipse cover,  rgb(178,225,255) 0%,rgb(102,182,252) 100%);
+	background: -o-radial-gradient(center, ellipse cover,  rgb(178,225,255) 0%,rgb(102,182,252) 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  rgb(178,225,255) 0%,rgb(102,182,252) 100%);
+	background: radial-gradient(ellipse at center,  rgb(178,225,255) 0%,rgb(102,182,252) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', endColorstr='#66b6fc',GradientType=1 );
+}
+
+.MenuBtn2 {
+	color:black;
+	font-size:1.5em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 90%;
+	height: 40px;
+	text-align: center;
+	border:0px;
 	background: rgb(178,225,255);
 	background: -moz-radial-gradient(center, ellipse cover,  rgb(178,225,255) 0%, rgb(102,182,252) 100%);
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgb(178,225,255)), color-stop(100%,rgb(102,182,252)));

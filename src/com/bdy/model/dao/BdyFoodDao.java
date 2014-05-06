@@ -113,4 +113,20 @@ public class BdyFoodDao {
 		session.close();
 		return 1;
 	}
+	
+	
+	/*
+	 * by 皓元
+	 */
+	/*
+	 * 以fk_id查詢符合的foods
+	 */
+	@SuppressWarnings("unchecked")
+	public List<BdyFood> getFoodsByFkId(int fkId) {
+		Session session = sf.openSession();
+		Criteria criteria = session.createCriteria(BdyFood.class);
+		return criteria.createAlias("bdyFoodkind", "fk")
+					   .add(Restrictions.eq("fk.fkId", fkId))
+					   .list();
+	}
 }

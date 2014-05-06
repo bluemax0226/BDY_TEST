@@ -1,5 +1,6 @@
 package com.bdy.model.dao;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.StaleStateException;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.exception.ConstraintViolationException;
 
@@ -118,5 +120,66 @@ private SessionFactory sf = null;
 
 
 
+	/*
+	 * ============================================
+	 * extra dao by 皓元
+	 * ============================================
+	 */
+
+	public List<BdySetdetail> getSetdetailBySetId(int SetId) {
+		Session session = sf.openSession();
+		Iterator iter = session.createCriteria(BdySetdetail.class)
+							   .createAlias("bdySet", "BdySet")
+							   .add(Restrictions.eq("BdySet.setId", SetId))
+							   .list()
+							   .iterator();
+		
+		List<BdySetdetail> result = new ArrayList<BdySetdetail>();
+		while (iter.hasNext()) {
+			result.add((BdySetdetail) iter.next());
+		}
+		session.close();
+		
+		
+		return result;
+	}
+	
+	public int fkCount(int setId, int fkId) {
+		int count = 0;
+
+		Session session = sf.openSession();
+		Iterator iter = session.createCriteria(BdySetdetail.class)
+				   			   .createAlias("bdySet", "BdySet")
+				   			   .createAlias("bdyFoodkind", "fk")
+				   			   .add(Restrictions.eq("BdySet.setId", setId))
+							   .add(Restrictions.eq("fk.fkId", fkId))
+							   .setProjection(Projections.count("sdId"))
+				   			   .list()
+				   			   .iterator();
+		while (iter.hasNext()) {
+			count = (int)(long) iter.next();
+		}
+		
+		return count;
+	}
+	public void groupTest() {
+		Session session = sf.openSession();
+		Iterator iter = session.createCriteria(BdySetdetail.class)
+				   			   .setProjection(Projections.groupProperty("price"))
+				   			   .list()
+				   			   .iterator();
+		while (iter.hasNext()) {
+			System.out.println((Double) iter.next());
+		}
+		
+		iter = session.createCriteria(BdySetdetail.class)
+	   			   .setProjection(Projections.groupProperty("price"))
+	   			   .list()
+	   			   .iterator();
+	}
+	
+	/*
+	 * =========================================
+	 */
 
 }

@@ -4,35 +4,26 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
-
 	<constant name="struts.action.extension" value="action"></constant>
 
-
-	<package name="dafault" namespace="/" extends="struts-default">
-		<action name="testAction" class="com.bdy.controller.test">
-			<result name="success">/index.jsp</result>
-		</action>
-	</package>
-
-<!-- 組長 -->
+<!-- Kevin -->
 	<package name="ordermeal" namespace="/ordermeal" extends="struts-default">
 	</package>
 	
-<!-- 育安 -->
+<!-- Hamilton -->
 	<package name="kitchen" namespace="/kitchen" extends="struts-default">
 	</package>
 	
-<!-- 旭慧 -->
+<!-- Max -->
 	<package name="table" namespace="/table" extends="struts-default">
 	</package>
 	
-<!-- 富翔 -->
+<!-- Frank -->
 	<package name="report" namespace="/report" extends="struts-default">
 	
 	</package>
 	
-<!-- 繹祥 -->
+<!-- Rick -->
     <package name="secure" namespace="/secure" extends="struts-default">
 <!--     	<action name="login" class="controller.LoginAction"> -->
 <!--     		<result name="input" type="dispatcher">/secure/login.jsp</result> -->

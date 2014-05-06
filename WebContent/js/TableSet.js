@@ -1,10 +1,9 @@
 var xmlHttp = new XMLHttpRequest();
 var xmlHttp2 = new XMLHttpRequest();
 var xmlHttpInit = new XMLHttpRequest();
-	
 function getFloor(){
 	xmlHttpInit.addEventListener("readystatechange",initcallback,false);
-	var urlInit = "TableSet";
+	var urlInit = contextPath + "/tableset";
 	xmlHttpInit.open("post",urlInit,true);
 	xmlHttpInit.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	xmlHttpInit.send("act=init");
@@ -37,19 +36,6 @@ function initcallback(){
 			$('#picTB').css("width",picTBWidth);
 		}
 		
-		$('body').on('mousemove','#changeRange',changeTableSize);
-		function changeTableSize()
-		{
-			var range = $('#changeRange').val();
-			$('#showRange').text(range + "%");
-			$('#picTB>div').each(function(){
-				$(this).css("width",70 * (range/100));
-				$(this).css("height", 70 * (range/100));
-			});
-			
-		}
-
-		
 		function doLoadTable(){
 			$('#picTB>div').fadeToggle(800,function(){
 				$(this).remove();
@@ -58,7 +44,7 @@ function initcallback(){
 			idCount = 0;
 			var floor = $('#changeFloor').find(":selected").val();
 			xmlHttp2.addEventListener("readystatechange",loadcallback,false);
-			var url = "TableSet";
+			var url = contextPath + "/tableset";
 			xmlHttp2.open("post",url,true);
 			xmlHttp2.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 			xmlHttp2.send("act=load&f="+floor);
@@ -78,7 +64,6 @@ function initcallback(){
 							var tbName = data[i].tbName;
 							var tbSize = data[i].tbSize;
 							var tbLocation = data[i].tbLocation;
-							var tbFloor = data[i].tbFloor;
 							var tbState = data[i].tbState;
 							addTB(tbId ,tbName , tbSize , tbState , tbLocation);
 						}
@@ -134,7 +119,8 @@ function initcallback(){
 				str += JSON.stringify( tableData )+";";
 			});
 			xmlHttp.addEventListener("readystatechange",callback,false);
-			var url = "TableSet";
+
+			var url = contextPath + "/tableset";
 			xmlHttp.open("post",url,true);
 			xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 			xmlHttp.send("act=save&data="+str+"&f="+floor+"&DTL="+delTBlist);
@@ -156,12 +142,12 @@ function initcallback(){
 			{
 				$(this).parents("#picTB>div").draggable("destroy");
 				$(this).attr('alt','Lock');
-				$(this).attr('src','images/Lock.jpg');
+				$(this).attr('src', contextPath + '/images/Lock.jpg');
 			}else
 			{
 				$(this).parents("#picTB>div").draggable("option", "containment", "parent");
 				$(this).attr('alt','unLock');
-				$(this).attr('src','images/unLock.jpg');
+				$(this).attr('src',contextPath + '/images/unLock.jpg');
 			}
 		});
 		
@@ -224,8 +210,8 @@ function initcallback(){
 			newTbDiv.innerHTML += '<input type="hidden" id="tbName" value="'+tbName+'">';
 			newTbDiv.innerHTML += '<input type="hidden" id="tbSize" value="'+tbSize+'">';
 			newTbDiv.innerHTML += '<input type="hidden" id="tbState" value="'+tbState+'">';
-			newTbDiv.innerHTML += '<br><img class="tbimg" id="lockIMG" alt="unLock" src="images/unLock.jpg">';
-			newTbDiv.innerHTML += '<img class="tbimg" id="delTB" alt="unLock" src="images/del.jpg">';
+			newTbDiv.innerHTML += '<br><img class="tbimg" id="lockIMG" alt="unLock" src="'+contextPath+'/images/unLock.jpg">';
+			newTbDiv.innerHTML += '<img class="tbimg" id="delTB" alt="unLock" src="'+contextPath+'/images/del.jpg">';
 			newTbDiv.setAttribute("style",'position:absolute;top:'+topCount+'px;left:'+leftCount+'px');
 			newTbDiv.setAttribute("class","divTB");
 			newTbDiv.setAttribute("id",tbId);
