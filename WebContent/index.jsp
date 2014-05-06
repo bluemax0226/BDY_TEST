@@ -11,7 +11,7 @@
 <img src="images/BDY_LogoColorful.png">
 <div style="width: 500px;text-align:center;">
 <form action="MainPage.jsp" method="post">
-帳號:<input type="text" name="userID">
+帳號:<input type="text" name="userID123">
 密碼:<input type="password" name="userPW">
 <input style="width:100px;" type="submit" name="btnLogin" value="登入123">
 </form>
