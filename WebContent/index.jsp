@@ -12,8 +12,8 @@
 <img src="<c:url value='/images/BDY_LogoColorful.png'/>">
 <div style="width: 500px;text-align:center;">
 <form action="<c:url value='/mainpage.jsp' />" method="post">
-帳號:<input type="text" name="userID">
-密碼:<input type="password" name="userPW">
+帳號->:<input type="text" name="userID">
+密碼->:<input type="password" name="userPW">
 <input style="width:100px;" type="submit" name="btnLogin" value="@登入@">
 </form>
 </div>
