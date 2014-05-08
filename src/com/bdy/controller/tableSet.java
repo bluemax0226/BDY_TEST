@@ -25,20 +25,11 @@ import com.bdy.model.BdyFloor;
 import com.bdy.model.BdyTable;
 import com.bdy.model.dao.BdyFloorDao;
 import com.bdy.model.dao.BdyTableDao;
-import com.bdy.service.KitchenService;
 
-@WebServlet("/tableset")
+@WebServlet("/TableSet")
 public class tableSet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-
-	KitchenService kservice;
-	
-	@Override
-	public void init() throws ServletException {
-		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
-		kservice = (KitchenService) context.getBean("KitchenService");	
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -90,8 +81,10 @@ public class tableSet extends HttpServlet {
 		        	obj.put("tbLocation", table.getLocation());
 		        	obj.put("tbFloor", table.getBdyFloor());
 		        	obj.put("tbState", table.getTableState());
+		        	//System.out.println(obj.toJSONString());
 		        	list.add(obj);
 		        }
+		        //System.out.println(list);
 		        out.print(list);
 				break;
 		}

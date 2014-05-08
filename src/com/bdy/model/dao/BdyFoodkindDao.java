@@ -10,7 +10,6 @@ import org.hibernate.StaleStateException;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.exception.ConstraintViolationException;
-
 import com.bdy.model.BdyFoodkind;
 
 public class BdyFoodkindDao {
@@ -104,21 +103,5 @@ public class BdyFoodkindDao {
 		
 		session.close();
 		return 1;
-	}
-	
-
-	/*
-	 * by 皓元
-	 */
-	
-	@SuppressWarnings("unchecked")
-	public List<BdyFoodkind> getMainFoodkinds() {
-		Session session = sf.openSession();
-		Criteria criteria = session.createCriteria(BdyFoodkind.class);
-		
-//		Iterator iter = criteria.add(Restrictions.eq("isMain", 1)).list().iterator();
-		return criteria.add(Restrictions.eq("isMain", 1)).list();
-								   
-//		criteria.createAlias(arg0, arg1)
 	}
 }

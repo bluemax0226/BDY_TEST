@@ -1,7 +1,5 @@
-console.log(contextPath+"/index.jsp");
-
 function goURL(page){
-	window.location = page;
+	window.location = "MainPage.jsp?page="+page;
 }
 
 function showState(txt){

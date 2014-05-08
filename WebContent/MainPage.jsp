@@ -1,77 +1,73 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 說明 : 此 mainpage.jsp 即是一個樣版 整份複製後 修改檔案名稱
-		      最後 將你要做的功能以及介面 都寫在 article -->
-<!-- 所有的 "路徑" 都必須加上  ＜c:url＞ 方法 所以掛載 JSTL 是必要的 (勿刪) -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="<c:url value="js/jquery-1.11.0.min.js"/>"></script>
+<script src="<c:url value="js/jquery-ui-1.10.4.min.js"/>"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- 27~29行JavaScript程式碼 作用等同於 ＜c:url＞的功能 
-	   如果有掛載JS檔案 且 利用JavaScript產生有包含路徑讀取專案內其他文件或檔案的時候
-	   請在路徑前面 加上 第28行程式碼所產生的變數 "contextPath" 
-	   以確保能夠與 ＜c:url＞ 有相同的功能 正確的讀取專案內的文件或檔案
-	 for example: (掛載的JS檔案中必須要 動態加入images資料夾下的一張圖片 圖片名稱為 01.jpg )
-	 
-	 function showIMG(){
-	 	var createIMG = document.createElement("img");
-	 	var url_IMG = contextPath + "/images/01.jpg";
-	 	createIMG.setAttribute( "src" ,  url_Pic );
-	 	$('body').append(createIMG);
-	 }
-	 
-	 以上可以確保檔案移動時  不用更改路徑 還是可以正確的讀取所需要的文件及圖片!
--->
-<!-- 必要的 Script 與 CSS 外掛 (以下) -->
-<script type="text/javascript">
-var contextPath='<%=request.getContextPath()%>';
-</script>
-<script src="<c:url value="/js/jquery.js"/>"></script>
-<script src="<c:url value="/js/jquery-ui.js"/>"></script>
-<script src="<c:url value="/js/main.js"/>"></script>
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery-ui.css"/>">
-<!-- 必要的 Script 與 CSS 外掛  (以上)-->
-<!-- 根據 自己的功能 增加的 Script 與 CSS 外掛  (以下)-->
-
-<!-- 根據 自己的功能 增加的 Script 與 CSS 外掛  (以上)-->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<!-- 詳細說明2 : 把 Welcome 改成你個功能名稱  請使用"English"不知道怎麼取可以請教 ［Kevin］ -->
-<title>BDY RSM - Welcome</title>
+<link rel="stylesheet" type="text/css" id="cssStyle" href="<c:url value="css/main.css"/>">
+<script src="<c:url value="js/main.js"/>"></script>
+<title>BDY RMS</title>
 </head>
 <body>
 <div id="mainBox">
 <div id="header">
-<jsp:include page="/mainpage/header.jsp" />
+<div id="LogoLabel">
+<img id="bannerLogo" src="<c:url value="images/BDY_Logo.png"/>">
+</div>
+<div class="topLabel">
+<p><span class="topItem">可容納人數:</span><span class="topValueint">99999</span></p>
+<p><span class="topItem">餐聽內人數:</span><span class="topValueint">58</span></p>
+<p><span class="topItem">桌位總數:</span><span class="topValueint">25</span></p>
+<p><span class="topItem">已使用桌數:</span><span class="topValueint">20</span></p>
+<p><span class="topItem">未使用桌數:</span><span class="topValueint">5</span></p>
+</div>
+<div class="topLabel">
+<p><span class="topItem">可用活動1:</span><span class="topValue">滿千送百</span></p>
+<p><span class="topItem">可用活動2:</span><span class="topValue">四人同行一人免費</span></p>
+<p><span class="topItem">可用活動3:</span><span class="topValue">字數測試，這裡最多可以印出十七個字</span></p>
+<p><span class="topItem">可用活動4:</span><span class="topValue">無</span></p>
+<p><span class="topItem">可用活動5:</span><span class="topValue">無</span></p>
+</div>
+<div class="topLabel">
+<p><span class="topItem">等待加入中:</span><span class="topValue">100</span></p>
+<p><span class="topItem">等待加入中:</span><span class="topValue">100</span></p>
+<p><span class="topItem">等待加入中:</span><span class="topValue">100</span></p>
+<p><span class="topItem">等待加入中:</span><span class="topValue">100</span></p>
+<p><span class="topItem">等待加入中:</span><span class="topValue">100</span></p>
+</div>
+<div id="topEMPinfo">
+<p><span class="topItem">員工編號:</span><span class="topValue">BDY9527</span></p>
+<p><span class="topItem">員工名字:</span><span class="topValue">懶洋洋</span></p>
+</div>
 </div>
 <div id="aside">
-<jsp:include page="/mainpage/aside.jsp" />
+<div id="functionTXT">功能選單</div>
+<div><img id="functionLogo" src="<c:url value="images/function.jpg"/>"></div>
+<input class="MenuBtn" type="button" value="訂位"><br>
+<input class="MenuBtn" type="button" value="劃位"><br>
+<input class="MenuBtn" type="button" value="結帳"><br>
+<input class="MenuBtn" type="button" value="點餐"><br>
+<input class="MenuBtn" type="button" value="餐桌擺設" onclick="goURL('TableSet')"><br>
+<input class="MenuBtn" type="button" value="出餐"><br>
+<input class="MenuBtn" type="button" value="報表"><br>
+<input class="MenuBtn" type="button" value="員工管理"><br>
+<input class="MenuBtn" type="button" value="餐廳管理"><br>
+<input class="MenuBtn" type="button" onclick="window.location='index.jsp'" value="登出">
 </div>
-
 <div id="article">
-<!-- START Write -->
-	<h2 class="demoHeaders">Jquery UI Demo</h2>
-	<div style="width:20%;">
-		<div class="ui-widget">
-			<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
-				<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-				<strong>Highlight:</strong><br> Sample ui-state-highlight style.</p>
-			</div>
-		</div>
-		<br>
-		<div class="ui-widget">
-			<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-				<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-				<strong>Error:</strong><br> Sample ui-state-error style.</p>
-			</div>
-		</div>
-	</div>
-<!-- END Write-->
+<input type="button" onclick="changeStyle('modify')" value="show" />
+<input type="button" onclick="changeStyle('insert')" value="insert" />
+<div id="modify" style="display:none">
+</div>
+<c:if test="${param.page == 'TableSet' }">
+	<jsp:include page="/TableSet.jsp" />
+</c:if>
 </div>
 <div id="footer">
-<jsp:include page="/mainpage/footer.jsp" />
+Kevin,Max,Hamilton,Frank and Rick 2014 © BaDoYaw RM System All Rights Reserved.
 </div>
 </div>
 </body>
