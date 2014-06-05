@@ -1,0 +1,78 @@
+#ChooseSetDialog{
+	text-align:center;
+}
+#ChooseSetDialog input{
+	margin:2px 2px 2px 2px;
+	width:80%;
+}
+#orderarea input,#orderlist input{
+	margin:2px 2px 2px 2px;
+	width:19%;
+}
+#mainMenu{
+	font-size:1.1em;
+	width:95%;
+	height:40px;
+	margin:0px auto;
+}
+#orderarea{
+	width:95%;
+	height:35%;
+	margin:0px auto;
+}
+#orderlist{
+	width:95%;
+	height:57%;
+	margin:0px auto;
+}
+
+#orderlist li .ui-icon-close{
+	margin: 0.6em 0.2em 0 0;
+	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	padding: 5px;
+	margin: 0px;
+	
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+
+li:hover{
+	background: #d0dafd;
+	color: #339;
+}
+
+.garbageCanOriginal{
+	height:120px;
+	width:110px;
+	position:absolute;
+	bottom:2px;
+	right:2px;
+	background-image: url("/BDYRMS/images/GCempty.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.garbageCanHover{
+	background-image: url("/BDYRMS/images/GCFull.png");
+}
+
+.FoodBtnStyle{
+	z-index:99;
+}
+
+#ul-detail{
+	display:none;
+}
+
+
+
